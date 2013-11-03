@@ -9,7 +9,6 @@ from django.utils.translation import ugettext_lazy as _
 
 # keep imports
 from . import compat
-from .settings import geoip_settings, ipgeobase_settings
 
 
 class Country(models.Model):
@@ -50,6 +49,7 @@ class City(models.Model):
     """
     region = models.ForeignKey(Region, related_name='cities')
     name = models.CharField(_('city name'), max_length=255)
+    is_base = models.BooleanField(_('is base'), default=False)
     latitude = models.DecimalField(max_digits=9, decimal_places=6, blank=True, null=True)
     longitude = models.DecimalField(max_digits=9, decimal_places=6, blank=True, null=True)
 
