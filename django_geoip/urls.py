@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls.defaults import *
+from django.conf.urls import url, patterns
 from django_geoip.views import set_location
 
 urlpatterns = patterns('',
