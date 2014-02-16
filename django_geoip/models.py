@@ -48,7 +48,7 @@ class City(models.Model):
         Contains additional latitude/longitude info.
     """
     region = models.ForeignKey(Region, related_name='cities')
-    name = models.CharField(_('city name'), max_length=255)
+    name = models.CharField(_('city name'), max_length=255, db_index=True)
     country_name = models.CharField(_("country_name"), blank=True, max_length=255)
     is_base = models.BooleanField(_('is base'), default=False)
     latitude = models.DecimalField(max_digits=9, decimal_places=6, blank=True, null=True)
